@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/screens/registr_page.dart';
+import 'package:flutter_application_1/screens/widget_tree.dart';
 import 'package:flutter_application_1/texts/app_large_text.dart';
 
 class OnBordingScreen1 extends StatefulWidget {
@@ -69,7 +71,13 @@ class _OnBordingScreen1State extends State<OnBordingScreen1> {
                                 width: 180,
                                 height: 45,
                                 child: ElevatedButton(
-                                    onPressed: () {},
+                                    onPressed: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  const LoginPage()));
+                                    },
                                     style: ElevatedButton.styleFrom(
                                         shape: StadiumBorder(),
                                         primary: Color(0xffD0FD3E)),

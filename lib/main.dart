@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter_application_1/screens/home_page.dart';
+import 'package:flutter_application_1/screens/on_bording_screen.dart';
 import 'package:flutter_application_1/screens/widget_tree.dart';
 import 'package:flutter_application_1/auth//firebase_options.dart';
 
@@ -21,7 +23,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      home: WidgetTree(),
+      home: HomePage(),
     );
   }
 }
