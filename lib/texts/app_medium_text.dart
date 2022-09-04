@@ -7,7 +7,7 @@ class AppMeddiumText extends StatelessWidget {
   final Color color;
   AppMeddiumText(
       {super.key,
-      this.size = 18,
+      this.size = 17,
       required this.text,
       this.color = Colors.white});
 

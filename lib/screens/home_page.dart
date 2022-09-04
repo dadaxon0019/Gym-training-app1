@@ -1,7 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/auth/auth.dart';
-import 'package:flutter_application_1/models.dart';
+import 'package:flutter_application_1/models/models.dart';
+import 'package:flutter_application_1/models/workout_categories.dart';
 import 'package:flutter_application_1/texts/app_medium_text.dart';
 import 'package:flutter_application_1/texts/app_small_text.dart';
 import 'package:flutter_application_1/texts/app_large_text.dart';
@@ -19,7 +20,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: Color.fromARGB(84, 80, 80, 80),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
         child: ListView(
@@ -41,7 +42,7 @@ class HomePage extends StatelessWidget {
                   ],
                 ),
                 SizedBox(
-                  height: 50,
+                  height: 40,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -54,6 +55,20 @@ class HomePage extends StatelessWidget {
                   height: 15,
                 ),
                 CardWidget(),
+                SizedBox(
+                  height: 40,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    AppMeddiumText(text: 'Workout Categories'),
+                    AppSmallText(text: 'See All', color: Color(0xffD0FD3E))
+                  ],
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                WorkoutCategories(),
               ],
             ),
           ],

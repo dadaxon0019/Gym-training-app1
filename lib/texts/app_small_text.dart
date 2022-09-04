@@ -6,7 +6,10 @@ class AppSmallText extends StatelessWidget {
   final String text;
   final Color color;
   AppSmallText(
-      {super.key, this.size = 14, required this.text, required this.color});
+      {super.key,
+      this.size = 14,
+      required this.text,
+      this.color = Colors.white});
 
   @override
   Widget build(BuildContext context) {
