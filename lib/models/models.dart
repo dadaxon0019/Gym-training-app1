@@ -44,6 +44,9 @@ class CardWidget extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               AppMeddiumText(text: 'Day 01 - Warm Up'),
+              SizedBox(
+                height: 5,
+              ),
               AppSmallText(
                 text: '07:00 - 08:00 AM',
                 color: const Color(0xffD0FD3E),

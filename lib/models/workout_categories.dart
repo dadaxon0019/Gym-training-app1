@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/texts/app_medium_text.dart';
 import 'package:flutter_application_1/texts/app_small_text.dart';
 
 class WorkoutCategories extends StatefulWidget {
@@ -53,27 +54,120 @@ class _WorkoutCategoriesState extends State<WorkoutCategories>
           child: TabBarView(
             controller: _tabController,
             children: [
-              Container(
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(15),
-                    image: DecorationImage(
-                        image: AssetImage('img/categories_card_img_1.png'),
-                        fit: BoxFit.cover)),
+              Stack(
+                children: [
+                  Container(
+                    width: double.infinity,
+                    height: 160,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(15),
+                        image: const DecorationImage(
+                          image: AssetImage('img/categories_card_img_1.png'),
+                          fit: BoxFit.cover,
+                        )),
+                  ),
+                  Container(
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 16, horizontal: 16),
+                    width: double.infinity,
+                    height: 160,
+                    decoration: BoxDecoration(
+                      color: Color.fromARGB(80, 0, 0, 0),
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        AppMeddiumText(text: 'Learn the Basic of Training'),
+                        SizedBox(
+                          height: 5,
+                        ),
+                        AppSmallText(
+                          text: '06 Workouts  for Beginner',
+                          color: const Color(0xffD0FD3E),
+                        )
+                      ],
+                    ),
+                  )
+                ],
               ),
-              Container(
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(15),
-                    image: DecorationImage(
-                        image: AssetImage('img/categories_card_img_2.png'),
-                        fit: BoxFit.cover)),
+              Stack(
+                children: [
+                  Container(
+                    width: double.infinity,
+                    height: 160,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(15),
+                        image: const DecorationImage(
+                          image: AssetImage('img/categories_card_img_2.png'),
+                          fit: BoxFit.cover,
+                        )),
+                  ),
+                  Container(
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 16, horizontal: 16),
+                    width: double.infinity,
+                    height: 160,
+                    decoration: BoxDecoration(
+                      color: Color.fromARGB(102, 0, 0, 0),
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        AppMeddiumText(text: 'Learn the Basic of Training'),
+                        SizedBox(
+                          height: 5,
+                        ),
+                        AppSmallText(
+                          text: '06 Workouts  for Beginner',
+                          color: const Color(0xffD0FD3E),
+                        )
+                      ],
+                    ),
+                  )
+                ],
               ),
-              Container(
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(15),
-                    image: DecorationImage(
-                        image: AssetImage('img/categories_card_img_3.png'),
-                        fit: BoxFit.cover)),
-              )
+              Stack(
+                children: [
+                  Container(
+                    width: double.infinity,
+                    height: 160,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(15),
+                        image: const DecorationImage(
+                          image: AssetImage('img/categories_card_img_3.png'),
+                          fit: BoxFit.cover,
+                        )),
+                  ),
+                  Container(
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 16, horizontal: 16),
+                    width: double.infinity,
+                    height: 160,
+                    decoration: BoxDecoration(
+                      color: Color.fromARGB(102, 0, 0, 0),
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        AppMeddiumText(text: 'Learn the Basic of Training'),
+                        SizedBox(
+                          height: 5,
+                        ),
+                        AppSmallText(
+                          text: '06 Workouts  for Beginner',
+                          color: const Color(0xffD0FD3E),
+                        )
+                      ],
+                    ),
+                  )
+                ],
+              ),
             ],
           ),
         ),
