@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/texts/app_medium_text.dart';
 import 'package:flutter_application_1/texts/app_small_text.dart';
+import 'package:flutter_application_1/training card/beginner_card.dart';
 
 class WorkoutCategories extends StatefulWidget {
   const WorkoutCategories({super.key});
@@ -164,6 +165,18 @@ class _WorkoutCategoriesState extends State<WorkoutCategories>
                           color: const Color(0xffD0FD3E),
                         )
                       ],
+                    ),
+                  ),
+                  Material(
+                    color: Colors.transparent,
+                    child: InkWell(
+                      borderRadius: BorderRadius.circular(15),
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const BeginnerCard()));
+                      },
                     ),
                   )
                 ],
