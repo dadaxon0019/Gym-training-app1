@@ -90,6 +90,18 @@ class _WorkoutCategoriesState extends State<WorkoutCategories>
                         )
                       ],
                     ),
+                  ),
+                  Material(
+                    color: Colors.transparent,
+                    child: InkWell(
+                      borderRadius: BorderRadius.circular(15),
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const BeginnerCard()));
+                      },
+                    ),
                   )
                 ],
               ),
@@ -127,6 +139,18 @@ class _WorkoutCategoriesState extends State<WorkoutCategories>
                           color: const Color(0xffD0FD3E),
                         )
                       ],
+                    ),
+                  ),
+                  Material(
+                    color: Colors.transparent,
+                    child: InkWell(
+                      borderRadius: BorderRadius.circular(15),
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const BeginnerCard()));
+                      },
                     ),
                   )
                 ],
