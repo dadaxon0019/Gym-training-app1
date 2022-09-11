@@ -13,14 +13,6 @@ class BeginnerCard extends StatefulWidget {
 }
 
 class _BeginnerCard extends State<BeginnerCard> {
-  bool videoOn = true;
-  bool starOnMain = false;
-  bool starOn1 = false;
-  bool starOn2 = false;
-  bool starOn3 = false;
-  bool starOn4 = false;
-  bool starOn5 = false;
-  num schet = 4.0;
   static const IconData local_fire_department_sharp =
       IconData(0xea8c, fontFamily: 'MaterialIcons');
 
@@ -135,19 +127,19 @@ class _BeginnerCard extends State<BeginnerCard> {
                 ),
                 VideoWidget(),
                 SizedBox(
-                  height: 10,
+                  height: 13,
                 ),
                 VideoWidget(),
                 SizedBox(
-                  height: 10,
+                  height: 13,
                 ),
                 VideoWidget(),
                 SizedBox(
-                  height: 10,
+                  height: 13,
                 ),
                 VideoWidget(),
                 SizedBox(
-                  height: 10,
+                  height: 13,
                 ),
                 VideoWidget()
               ],
