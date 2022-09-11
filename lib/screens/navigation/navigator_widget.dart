@@ -16,11 +16,13 @@ class _NavigatorWidgetState extends State<NavigatorWidget> {
   final screens = [
     HomePage(),
     MusicWidget(),
-    SettingsWidget(),
+    MusicWidget(),
   ];
   @override
   final items = [
-    Icon(Icons.home),
+    Icon(
+      Icons.home,
+    ),
     Icon(Icons.music_note_outlined),
     Icon(Icons.settings),
   ];
@@ -34,7 +36,9 @@ class _NavigatorWidgetState extends State<NavigatorWidget> {
         height: 60,
         animationDuration: Duration(milliseconds: 350),
         items: items,
-        onTap: (index) => setState(() => this.index = index),
+        onTap: (index) {
+          if (mounted) setState(() => this.index = index);
+        },
       ),
       body: screens[index],
     );
