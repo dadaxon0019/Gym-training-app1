@@ -2,15 +2,16 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/auth/auth.dart';
-import 'package:flutter_application_1/models/models.dart';
+import 'package:flutter_application_1/models/card_widget_model.dart';
+import 'package:flutter_application_1/models/card_widget_model.dart';
 import 'package:flutter_application_1/models/workout_categories.dart';
 import 'package:flutter_application_1/texts/app_medium_text.dart';
 import 'package:flutter_application_1/texts/app_small_text.dart';
 import 'package:flutter_application_1/texts/app_large_text.dart';
-import 'package:flutter_application_1/screens/registr_page.dart';
+import 'package:flutter_application_1/auth/registr_page/registr_page.dart';
 import 'package:flutter_application_1/training%20card/beginner_card.dart';
 
-import 'music_widget.dart';
+import '../models/music_widget_model.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({super.key});

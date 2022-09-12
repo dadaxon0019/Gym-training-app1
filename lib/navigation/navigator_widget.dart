@@ -1,7 +1,8 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/screens/home_page.dart';
-import 'package:flutter_application_1/screens/music_widget.dart';
+import 'package:flutter_application_1/models/music_widget_model.dart';
+import 'package:flutter_application_1/screens/musicPage.dart';
 import 'package:flutter_application_1/screens/settings_widget.dart';
 
 class NavigatorWidget extends StatefulWidget {
@@ -15,8 +16,8 @@ class _NavigatorWidgetState extends State<NavigatorWidget> {
   int index = 0;
   final screens = [
     HomePage(),
-    MusicWidget(),
-    MusicWidget(),
+    MusicsScreen(),
+    MusicsScreen(),
   ];
   @override
   final items = [
@@ -40,7 +41,11 @@ class _NavigatorWidgetState extends State<NavigatorWidget> {
           if (mounted) setState(() => this.index = index);
         },
       ),
-      body: screens[index],
+      body: IndexedStack(index: index, children: [
+        HomePage(),
+        MusicsScreen(),
+        MusicsScreen(),
+      ]),
     );
   }
 }

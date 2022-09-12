@@ -1,14 +1,27 @@
 import 'package:audioplayers/audioplayers.dart';
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/json/mp3_json.dart';
+import 'package:flutter_application_1/screens/musicPage.dart';
+import 'package:pull_to_refresh/pull_to_refresh.dart';
+import 'package:flutter_application_1/navigation/navigator_widget.dart';
+import 'package:stacked/stacked.dart';
+
+import '../screens/home_page.dart';
 
 class MusicWidget extends StatefulWidget {
-  const MusicWidget({super.key});
+  const MusicWidget({super.key, required this.music});
+  final Musics music;
 
   @override
-  State<MusicWidget> createState() => _MusicWidgetState();
+  State<MusicWidget> createState() => _MusicWidgetState(music);
 }
 
 class _MusicWidgetState extends State<MusicWidget> {
+  int refresh = 4;
+  final Musics movie;
+  _MusicWidgetState(this.movie);
+
   final audioPlayer = AudioPlayer();
   bool isPlaying = false;
   Duration duration = Duration.zero;
@@ -42,9 +55,7 @@ class _MusicWidgetState extends State<MusicWidget> {
 
   Future setAudio() async {
     audioPlayer.setReleaseMode(ReleaseMode.loop);
-
-    String url =
-        'https://muzes.net/uploads/music/2022/07/INSTASAMKA_MONEYKEN_LOVE.mp3';
+    String url = movie.mp3Url;
     audioPlayer.setSourceUrl(url);
   }
 
@@ -67,8 +78,32 @@ class _MusicWidgetState extends State<MusicWidget> {
     ].join(':');
   }
 
+  int index = 1;
+  final screens = [
+    HomePage(),
+    MusicsScreen(),
+    MusicsScreen(),
+  ];
+  final items = [
+    Icon(
+      Icons.home,
+    ),
+    Icon(Icons.music_note_outlined),
+    Icon(Icons.settings),
+  ];
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: CurvedNavigationBar(
+        index: index,
+        color: Color.fromARGB(170, 208, 253, 62),
+        backgroundColor: Color(0xff1C1C1E),
+        height: 60,
+        animationDuration: Duration(milliseconds: 350),
+        items: items,
+        onTap: (index) {
+          if (mounted) setState(() => this.index = index);
+        },
+      ),
       backgroundColor: Color(0xff1C1C1E),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 20, vertical: 50),
@@ -77,7 +112,7 @@ class _MusicWidgetState extends State<MusicWidget> {
             ClipRRect(
               borderRadius: BorderRadius.circular(20),
               child: Image.network(
-                'https://i.scdn.co/image/ab6761610000e5eb187484b54190415a779d3855',
+                movie.imgUrl,
                 width: double.infinity,
                 height: 350,
                 fit: BoxFit.cover,
@@ -87,7 +122,7 @@ class _MusicWidgetState extends State<MusicWidget> {
               height: 23,
             ),
             Text(
-              'INSTASAMKA',
+              movie.name,
               style: TextStyle(
                   fontSize: 22,
                   fontWeight: FontWeight.bold,
@@ -97,7 +132,7 @@ class _MusicWidgetState extends State<MusicWidget> {
               height: 4,
             ),
             Text(
-              'MONEYKEN LOVE',
+              movie.mp3Name,
               style: TextStyle(fontSize: 16, color: Colors.white),
             ),
             Slider(
@@ -147,7 +182,7 @@ class _MusicWidgetState extends State<MusicWidget> {
                   }
                 },
               ),
-            )
+            ),
           ],
         ),
       ),
