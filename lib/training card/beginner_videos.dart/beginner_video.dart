@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/texts/app_small_text.dart';
-import 'package:flutter_application_1/training%20card/beginner_videos.dart/video_player_widget.dart';
 import 'package:video_player/video_player.dart';
 
 class VideoWidget extends StatefulWidget {
@@ -15,7 +14,9 @@ class _VideoWidgetState extends State<VideoWidget> {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: () {
+        VideoApp();
+      },
       child: Container(
         height: 76,
         decoration: BoxDecoration(

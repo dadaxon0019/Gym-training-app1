@@ -1,7 +1,10 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/texts/app_medium_text.dart';
 import 'package:flutter_application_1/texts/app_small_text.dart';
 import 'package:flutter_application_1/training card/beginner_card.dart';
+import 'package:flutter_application_1/training%20card/beginner_videos.dart/video_info/video_info.dart';
+import 'package:get/get.dart';
 
 class WorkoutCategories extends StatefulWidget {
   const WorkoutCategories({super.key});
@@ -94,14 +97,13 @@ class _WorkoutCategoriesState extends State<WorkoutCategories>
                   Material(
                     color: Colors.transparent,
                     child: InkWell(
-                      borderRadius: BorderRadius.circular(15),
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const BeginnerCard()));
-                      },
-                    ),
+                        borderRadius: BorderRadius.circular(15),
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              CupertinoPageRoute(
+                                  builder: (context) => VideoInfo()));
+                        }),
                   )
                 ],
               ),

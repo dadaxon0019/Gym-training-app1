@@ -3,15 +3,16 @@ import 'package:flutter_application_1/screens/home_page.dart';
 import 'package:flutter_application_1/texts/app_medium_text.dart';
 import 'package:flutter_application_1/texts/app_small_text.dart';
 import 'package:flutter_application_1/training%20card/beginner_videos.dart/beginner_video.dart';
+// import 'package:video_player/video_player.dart';
 
-class BeginnerCard extends StatefulWidget {
-  const BeginnerCard({Key? key}) : super(key: key);
+class MuscMainPage extends StatefulWidget {
+  const MuscMainPage({Key? key}) : super(key: key);
 
   @override
-  State<BeginnerCard> createState() => _BeginnerCard();
+  State<MuscMainPage> createState() => _MuscMainPage();
 }
 
-class _BeginnerCard extends State<BeginnerCard> {
+class _MuscMainPage extends State<MuscMainPage> {
   static const IconData local_fire_department_sharp =
       IconData(0xea8c, fontFamily: 'MaterialIcons');
 
@@ -19,8 +20,7 @@ class _BeginnerCard extends State<BeginnerCard> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xff1C1C1E),
-      body: SingleChildScrollView(
-          child: Column(
+      body: ListView(
         children: [
           Stack(
             children: [
@@ -125,43 +125,28 @@ class _BeginnerCard extends State<BeginnerCard> {
                 SizedBox(
                   height: 32,
                 ),
-                Container(
-                  child: ListView(
-                    shrinkWrap: true,
-                    scrollDirection: Axis.vertical,
-                    children: [
-                      SizedBox(
-                        height: 32,
-                      ),
-                      VideoWidget(),
-                      SizedBox(
-                        height: 32,
-                      ),
-                      VideoWidget(),
-                      SizedBox(
-                        height: 32,
-                      ),
-                      VideoWidget(),
-                      SizedBox(
-                        height: 32,
-                      ),
-                      VideoWidget(),
-                      SizedBox(
-                        height: 32,
-                      ),
-                      VideoWidget(),
-                      SizedBox(
-                        height: 32,
-                      ),
-                      VideoWidget(),
-                    ],
-                  ),
-                )
+                VideoWidget(),
+                SizedBox(
+                  height: 13,
+                ),
+                VideoWidget(),
+                SizedBox(
+                  height: 13,
+                ),
+                VideoWidget(),
+                SizedBox(
+                  height: 13,
+                ),
+                VideoWidget(),
+                SizedBox(
+                  height: 13,
+                ),
+                VideoWidget()
               ],
             ),
           )
         ],
-      )),
+      ),
     );
   }
 }

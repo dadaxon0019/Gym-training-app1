@@ -1,13 +1,6 @@
 import 'package:audioplayers/audioplayers.dart';
-import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/json/mp3_json.dart';
 import 'package:flutter_application_1/screens/musicPage.dart';
-import 'package:pull_to_refresh/pull_to_refresh.dart';
-import 'package:flutter_application_1/navigation/navigator_widget.dart';
-import 'package:stacked/stacked.dart';
-
-import '../screens/home_page.dart';
 
 class MusicWidget extends StatefulWidget {
   const MusicWidget({super.key, required this.music});
@@ -78,32 +71,10 @@ class _MusicWidgetState extends State<MusicWidget> {
     ].join(':');
   }
 
-  int index = 1;
-  final screens = [
-    HomePage(),
-    MusicsScreen(),
-    MusicsScreen(),
-  ];
-  final items = [
-    Icon(
-      Icons.home,
-    ),
-    Icon(Icons.music_note_outlined),
-    Icon(Icons.settings),
-  ];
+  double currentvol = 0.5;
+
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: CurvedNavigationBar(
-        index: index,
-        color: Color.fromARGB(170, 208, 253, 62),
-        backgroundColor: Color(0xff1C1C1E),
-        height: 60,
-        animationDuration: Duration(milliseconds: 350),
-        items: items,
-        onTap: (index) {
-          if (mounted) setState(() => this.index = index);
-        },
-      ),
       backgroundColor: Color(0xff1C1C1E),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 20, vertical: 50),
@@ -135,6 +106,9 @@ class _MusicWidgetState extends State<MusicWidget> {
               movie.mp3Name,
               style: TextStyle(fontSize: 16, color: Colors.white),
             ),
+            SizedBox(
+              height: 20,
+            ),
             Slider(
               thumbColor: Color(0xffD0FD3E),
               activeColor: Color(0xffD0FD3E),
@@ -165,23 +139,43 @@ class _MusicWidgetState extends State<MusicWidget> {
                 ],
               ),
             ),
-            CircleAvatar(
-              radius: 35,
-              backgroundColor: Color.fromARGB(209, 82, 81, 81),
-              child: IconButton(
-                color: Color(0xffD0FD3E),
-                icon: Icon(
-                  isPlaying ? Icons.pause : Icons.play_arrow,
+            SizedBox(
+              height: 50,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                IconButton(
+                  color: Color(0xffD0FD3E),
+                  icon: Icon(Icons.skip_previous),
+                  iconSize: 50,
+                  onPressed: () {},
                 ),
-                iconSize: 50,
-                onPressed: () async {
-                  if (isPlaying) {
-                    await audioPlayer.pause();
-                  } else {
-                    await audioPlayer.resume();
-                  }
-                },
-              ),
+                CircleAvatar(
+                  radius: 35,
+                  backgroundColor: Color.fromARGB(209, 82, 81, 81),
+                  child: IconButton(
+                    color: Color(0xffD0FD3E),
+                    icon: Icon(
+                      isPlaying ? Icons.pause : Icons.play_arrow,
+                    ),
+                    iconSize: 50,
+                    onPressed: () async {
+                      if (isPlaying) {
+                        await audioPlayer.pause();
+                      } else {
+                        await audioPlayer.resume();
+                      }
+                    },
+                  ),
+                ),
+                IconButton(
+                  color: Color(0xffD0FD3E),
+                  icon: Icon(Icons.skip_next),
+                  iconSize: 50,
+                  onPressed: () {},
+                ),
+              ],
             ),
           ],
         ),

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/auth/registr_page/registr_page.dart';
-import 'package:flutter_application_1/navigation/widget_tree.dart';
 import 'package:flutter_application_1/texts/app_large_text.dart';
 
 class OnBordingScreen1 extends StatefulWidget {

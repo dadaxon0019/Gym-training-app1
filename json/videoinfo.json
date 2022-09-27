@@ -1,0 +1,27 @@
+[
+  {
+    "title": "Squat and Walk",
+    "time": "45 seconds",
+    "thumbnail": "assets/squat1.jpg",
+    "videoUrl": "https://joy.videvo.net/videvo_files/video/free/2019-03/small_watermarked/180419_Boxing_17_12_preview.webm?v=1480756"
+  },
+  {
+    "title": "Plie Squat and Heel Raises",
+    "time": "55 seconds",
+    "thumbnail": "assets/squat2.jpg",
+    "videoUrl": "https://media.istockphoto.com/videos/healthy-sport-man-exercise-in-training-camp-video-id1332452560"
+  },
+  {
+    "title": "Squat Kickback",
+    "time": "60 seconds",
+    "thumbnail": "assets/squat3.jpg",
+    "videoUrl": "https://media.istockphoto.com/videos/healthy-sport-man-exercise-in-fitness-video-id1332459529"
+  },
+  {
+    "title": "Squat with Side Leg Lift",
+    "time": "120 seconds",
+    "thumbnail": "assets/squat4.jpg",
+    "videoUrl": "https://media.istockphoto.com/videos/man-exercising-in-the-fitness-center-video-id1249174504"
+  }
+
+]

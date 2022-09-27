@@ -1,62 +1,159 @@
 import 'package:flutter/material.dart';
-import 'package:video_player/video_player.dart';
+import 'package:flutter_application_1/screens/home_page.dart';
+import 'package:flutter_application_1/texts/app_medium_text.dart';
+import 'package:flutter_application_1/texts/app_small_text.dart';
 
-void main() => runApp(const VideoApp());
-
-/// Stateful widget to fetch and then display video content.
-class VideoApp extends StatefulWidget {
-  const VideoApp({Key? key}) : super(key: key);
+class MuscMainPage extends StatefulWidget {
+  const MuscMainPage({Key? key}) : super(key: key);
 
   @override
-  _VideoAppState createState() => _VideoAppState();
+  State<MuscMainPage> createState() => _MuscMainPage();
 }
 
-class _VideoAppState extends State<VideoApp> {
-  late VideoPlayerController _controller;
-
-  @override
-  void initState() {
-    super.initState();
-    _controller = VideoPlayerController.network(
-        'https://flutter.github.io/assets-for-api-docs/assets/videos/bee.mp4')
-      ..initialize().then((_) {
-        // Ensure the first frame is shown after the video is initialized, even before the play button has been pressed.
-        setState(() {});
-      });
-  }
+class _MuscMainPage extends State<MuscMainPage> {
+  static const IconData local_fire_department_sharp =
+      IconData(0xea8c, fontFamily: 'MaterialIcons');
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Video Demo',
-      home: Scaffold(
-        body: Center(
-          child: _controller.value.isInitialized
-              ? AspectRatio(
-                  aspectRatio: _controller.value.aspectRatio,
-                  child: VideoPlayer(_controller),
-                )
-              : Container(),
-        ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            setState(() {
-              _controller.value.isPlaying
-                  ? _controller.pause()
-                  : _controller.play();
-            });
-          },
-          child: Icon(
-            _controller.value.isPlaying ? Icons.pause : Icons.play_arrow,
+    return Scaffold(
+      backgroundColor: Color(0xff1C1C1E),
+      body: ListView(
+        children: [
+          Stack(
+            children: [
+              ClipPath(
+                clipper: CustomClipPath(),
+                child: Container(
+                  width: double.infinity,
+                  height: 320,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage('img/beginner_card.png'),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 0),
+                child: IconButton(
+                  onPressed: () {
+                    Navigator.pop(context,
+                        MaterialPageRoute(builder: (context) => HomePage()));
+                  },
+                  icon: Icon(Icons.arrow_back_ios),
+                  color: Colors.white,
+                ),
+              ),
+            ],
           ),
-        ),
+          Container(
+            width: double.infinity,
+            padding: EdgeInsets.symmetric(horizontal: 15),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                AppMeddiumText(text: 'Day 01 - Warm Up'),
+                SizedBox(
+                  height: 8,
+                ),
+                AppSmallText(
+                  text: '04 Workouts for Beginner',
+                  color: Color(0xffD0FD3E),
+                ),
+                SizedBox(
+                  height: 32,
+                ),
+                Row(
+                  children: [
+                    Container(
+                      padding:
+                          EdgeInsets.only(left: 2, top: 2, bottom: 2, right: 8),
+                      decoration: BoxDecoration(
+                          color: Color.fromARGB(84, 80, 80, 80),
+                          borderRadius: BorderRadius.circular(15)),
+                      child: Row(
+                        children: [
+                          Icon(
+                            Icons.play_arrow_outlined,
+                            color: Colors.white,
+                          ),
+                          AppSmallText(text: '60 min')
+                        ],
+                      ),
+                    ),
+                    SizedBox(
+                      width: 15,
+                    ),
+                    Container(
+                      padding:
+                          EdgeInsets.only(left: 2, top: 2, bottom: 2, right: 8),
+                      decoration: BoxDecoration(
+                          color: Color.fromARGB(84, 80, 80, 80),
+                          borderRadius: BorderRadius.circular(15)),
+                      child: Row(
+                        children: [
+                          Icon(
+                            Icons.local_fire_department_sharp,
+                            color: Colors.white,
+                          ),
+                          AppSmallText(text: '350 Cal')
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 32,
+                ),
+                Container(
+                  child: Row(
+                    children: [
+                      Flexible(
+                        child: Column(children: [
+                          AppSmallText(
+                              text:
+                                  'Want your body to be healthy. Join our program with directions according to body’s goals. Increasing physical strength is the goal of strenght training. Maintain body fitness by doing physical exercise at least 2-3 times a week. ')
+                        ]),
+                      )
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  height: 32,
+                ),
+                // ListView.builder(
+                //   itemBuilder: (context, index) {
+                //     return VideoWidget();
+                //   },
+                //   itemCount: 8,
+                // ),
+              ],
+            ),
+          )
+        ],
       ),
     );
   }
+}
+
+class CustomClipPath extends CustomClipper<Path> {
+  @override
+  Path getClip(Size size) {
+    Path path = new Path();
+    final lowPoint = size.height - 20;
+    final highPoint = size.height - 40;
+    path.lineTo(0, size.height);
+    path.quadraticBezierTo(size.width / 4, highPoint, size.width / 2, lowPoint);
+    path.quadraticBezierTo(
+        3 / 4 * size.width, size.height, size.width, lowPoint);
+    path.lineTo(size.width, 0);
+    return path;
+  }
 
   @override
-  void dispose() {
-    super.dispose();
-    _controller.dispose();
+  bool shouldReclip(CustomClipper<Path> oldClipper) {
+    return false;
   }
 }

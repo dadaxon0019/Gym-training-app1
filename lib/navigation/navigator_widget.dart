@@ -1,9 +1,9 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/screens/home_page.dart';
-import 'package:flutter_application_1/models/music_widget_model.dart';
 import 'package:flutter_application_1/screens/musicPage.dart';
-import 'package:flutter_application_1/screens/settings_widget.dart';
+import 'package:flutter_application_1/screens/test_music.dart';
+import 'package:flutter_application_1/training%20card/beginner_videos.dart/video_info/video_info.dart';
 
 class NavigatorWidget extends StatefulWidget {
   const NavigatorWidget({super.key});
@@ -14,11 +14,7 @@ class NavigatorWidget extends StatefulWidget {
 
 class _NavigatorWidgetState extends State<NavigatorWidget> {
   int index = 0;
-  final screens = [
-    HomePage(),
-    MusicsScreen(),
-    MusicsScreen(),
-  ];
+  final screens = [VideoInfo(), MusicsScreen(), VideoInfo()];
   @override
   final items = [
     Icon(
@@ -43,7 +39,7 @@ class _NavigatorWidgetState extends State<NavigatorWidget> {
       ),
       body: IndexedStack(index: index, children: [
         HomePage(),
-        MusicsScreen(),
+        TestMusic(),
         MusicsScreen(),
       ]),
     );
