@@ -1,10 +1,11 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/screens/directory_page.dart';
 import 'package:flutter_application_1/screens/home_page.dart';
 import 'package:flutter_application_1/screens/musicPage.dart';
 import 'package:flutter_application_1/screens/test_music.dart';
 import 'package:flutter_application_1/training%20card/beginner_videos.dart/video_info/video_info.dart';
+
+import '../screens/Directory/main_directory_page.dart';
 
 class NavigatorWidget extends StatefulWidget {
   const NavigatorWidget({super.key});

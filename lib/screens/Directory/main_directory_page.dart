@@ -1,7 +1,10 @@
 import 'dart:convert';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/texts/app_medium_text.dart';
+import 'package:flutter_application_1/constants/colors.dart';
+import 'package:flutter_application_1/screens/Directory/exercise.dart';
+import 'package:flutter_application_1/texts/app_large_text.dart';
 
 class DirectoryPage extends StatefulWidget {
   const DirectoryPage({super.key});
@@ -28,18 +31,25 @@ class _DirectoryPageState extends State<DirectoryPage> {
     _initData();
   }
 
+  void _onMovieTap(int index) {
+    final id = directoryInfo[index].id;
+    Navigator.push(
+        context, CupertinoPageRoute(builder: (context) => Exercise()));
+    print(id);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xff1C1C1E),
+      backgroundColor: mainColor,
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(35),
         child: AppBar(
           automaticallyImplyLeading: false,
-          title: Text('Справочник'),
+          title: Text('Справчник'),
           centerTitle: true,
           toolbarHeight: 20,
-          backgroundColor: Color(0xff1C1C1E),
+          backgroundColor: mainColor,
         ),
       ),
       body: Padding(
@@ -52,7 +62,8 @@ class _DirectoryPageState extends State<DirectoryPage> {
           itemBuilder: (_, int index) {
             return GestureDetector(
               onTap: () {
-                debugPrint(index.toString());
+                Navigator.push(context,
+                    CupertinoPageRoute(builder: (context) => Exercise()));
                 setState(() {});
               },
               child: _buildCard(index),
@@ -82,8 +93,8 @@ class _DirectoryPageState extends State<DirectoryPage> {
           padding: EdgeInsets.symmetric(horizontal: 15),
           decoration: BoxDecoration(
             gradient: LinearGradient(colors: [
-              Color.fromARGB(202, 15, 68, 112),
-              Colors.transparent,
+              gradientFirstColor,
+              transparentColor,
             ], begin: Alignment.centerLeft, end: Alignment.centerRight),
             borderRadius: BorderRadius.circular(10),
           ),
@@ -91,8 +102,9 @@ class _DirectoryPageState extends State<DirectoryPage> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              AppMeddiumText(
+              AppLargeText(
                 text: directoryInfo[index]['title'],
+                size: 18,
               )
             ],
           ),
@@ -105,7 +117,10 @@ class _DirectoryPageState extends State<DirectoryPage> {
                   BoxDecoration(borderRadius: BorderRadius.circular(15)),
               child: InkWell(
                 borderRadius: BorderRadius.circular(15),
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(context,
+                      CupertinoPageRoute(builder: (context) => Exercise()));
+                },
               )),
         ),
       ],

@@ -544,7 +544,7 @@ class _VideoInfoState extends State<VideoInfo> {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
                   image: DecorationImage(
-                      image: AssetImage(
+                      image: NetworkImage(
                         videoinfo[index]["thumbnail"],
                       ),
                       fit: BoxFit.cover),
@@ -581,7 +581,7 @@ class _VideoInfoState extends State<VideoInfo> {
           Row(
             children: [
               Container(
-                width: 60,
+                padding: EdgeInsets.symmetric(horizontal: 10),
                 height: 20,
                 decoration: BoxDecoration(
                   color: Color.fromARGB(214, 208, 253, 62),
@@ -589,7 +589,7 @@ class _VideoInfoState extends State<VideoInfo> {
                 ),
                 child: Center(
                   child: Text(
-                    '10 rest',
+                    '3-4 подхода',
                     style: TextStyle(color: Color(0xff1C1C1E)),
                   ),
                 ),
@@ -599,7 +599,7 @@ class _VideoInfoState extends State<VideoInfo> {
               ),
               Row(
                 children: [
-                  for (int i = 0; i < 85; i++)
+                  for (int i = 0; i < 65; i++)
                     i.isEven
                         ? Container(
                             width: 3,

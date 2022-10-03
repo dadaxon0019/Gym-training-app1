@@ -1,6 +1,4 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/auth/auth.dart';
 import 'package:flutter_application_1/models/card_widget_model.dart';
 import 'package:flutter_application_1/models/workout_categories.dart';
 import 'package:flutter_application_1/texts/app_medium_text.dart';
@@ -9,11 +7,11 @@ import 'package:flutter_application_1/texts/app_large_text.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({super.key});
-  final User? user = Auth().currentUser;
+  // final User? user = Auth().currentUser;
 
-  Future<void> signOut() async {
-    await Auth().signOut();
-  }
+  // Future<void> signOut() async {
+  //   await Auth().signOut();
+  // }
 
   @override
   State<HomePage> createState() => _HomePageState();
