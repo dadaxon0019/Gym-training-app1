@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:math';
+import 'package:flutter_application_1/constants/colors.dart';
 import 'package:flutter_application_1/navigation/navigator_widget.dart';
 import 'package:flutter_application_1/screens/home_page.dart';
 import 'package:get/get.dart';
@@ -58,111 +59,127 @@ class _VideoInfoState extends State<VideoInfo> {
         child: Column(
           children: [
             _playArea == false
-                ? Container(
-                    padding:
-                        const EdgeInsets.only(top: 60, left: 20, right: 20),
-                    width: MediaQuery.of(context).size.width,
-                    height: 280,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Row(
+                ? Stack(
+                    children: [
+                      Container(
+                        width: MediaQuery.of(context).size.width,
+                        height: 280,
+                        decoration: BoxDecoration(
+                          image: DecorationImage(
+                              image: AssetImage('img/beginner_card.png'),
+                              fit: BoxFit.cover),
+                        ),
+                      ),
+                      Container(
+                        width: MediaQuery.of(context).size.width,
+                        height: 280,
+                        color: Color.fromARGB(67, 75, 71, 71),
+                      ),
+                      Container(
+                        padding:
+                            const EdgeInsets.only(top: 50, left: 20, right: 20),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            InkWell(
-                              onTap: () {
-                                Navigator.pushReplacement(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) =>
-                                            NavigatorWidget()));
-                              },
-                              child: Icon(
-                                Icons.arrow_back_ios,
-                                size: 20,
-                                color: Colors.white,
-                              ),
-                            ),
-                            Expanded(child: Container()),
-                            Icon(
-                              Icons.info_outline,
-                              size: 20,
-                              color: Colors.white,
-                            ),
-                          ],
-                        ),
-                        SizedBox(
-                          height: 30,
-                        ),
-                        AppLargeText(
-                          text: 'Today Workout Plan',
-                          size: 25,
-                        ),
-                        SizedBox(
-                          height: 5,
-                        ),
-                        AppMeddiumText(text: 'and Glutes Workout'),
-                        SizedBox(height: 50),
-                        Row(
-                          children: [
-                            Container(
-                              width: 90,
-                              height: 30,
-                              decoration: BoxDecoration(
-                                color: Color.fromARGB(215, 208, 253, 62),
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Icon(
-                                    Icons.timer,
+                            Row(
+                              children: [
+                                InkWell(
+                                  onTap: () {
+                                    Navigator.pushReplacement(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                NavigatorWidget()));
+                                  },
+                                  child: Icon(
+                                    Icons.arrow_back_ios,
                                     size: 20,
+                                    color: Colors.white,
                                   ),
-                                  SizedBox(
-                                    width: 5,
-                                  ),
-                                  Text(
-                                    '68 min',
-                                    style: TextStyle(
-                                      fontSize: 16,
-                                    ),
-                                  )
-                                ],
-                              ),
+                                ),
+                                Expanded(child: Container()),
+                                Icon(
+                                  Icons.info_outline,
+                                  size: 20,
+                                  color: Colors.white,
+                                ),
+                              ],
                             ),
                             SizedBox(
-                              width: 20,
-                            ),
-                            Container(
-                              width: 220,
                               height: 30,
-                              decoration: BoxDecoration(
-                                color: Color.fromARGB(215, 208, 253, 62),
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Icon(
-                                    Icons.handyman_outlined,
-                                    size: 20,
+                            ),
+                            AppLargeText(
+                              text: 'Today Workout Plan',
+                              size: 25,
+                            ),
+                            SizedBox(
+                              height: 5,
+                            ),
+                            AppMeddiumText(text: 'and Glutes Workout'),
+                            SizedBox(height: 50),
+                            Row(
+                              children: [
+                                Container(
+                                  width: 90,
+                                  height: 30,
+                                  decoration: BoxDecoration(
+                                    color: Color.fromARGB(215, 208, 253, 62),
+                                    borderRadius: BorderRadius.circular(10),
                                   ),
-                                  SizedBox(
-                                    width: 5,
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Icon(
+                                        Icons.timer,
+                                        size: 20,
+                                      ),
+                                      SizedBox(
+                                        width: 5,
+                                      ),
+                                      Text(
+                                        '68 min',
+                                        style: TextStyle(
+                                          fontSize: 16,
+                                        ),
+                                      )
+                                    ],
                                   ),
-                                  Text(
-                                    'Resistent band, kettebell',
-                                    style: TextStyle(
-                                      fontSize: 16,
-                                    ),
-                                  )
-                                ],
-                              ),
+                                ),
+                                SizedBox(
+                                  width: 20,
+                                ),
+                                Container(
+                                  width: 220,
+                                  height: 30,
+                                  decoration: BoxDecoration(
+                                    color: Color.fromARGB(215, 208, 253, 62),
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Icon(
+                                        Icons.handyman_outlined,
+                                        size: 20,
+                                      ),
+                                      SizedBox(
+                                        width: 5,
+                                      ),
+                                      Text(
+                                        'Resistent band, kettebell',
+                                        style: TextStyle(
+                                          fontSize: 16,
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                              ],
                             ),
                           ],
                         ),
-                      ],
-                    ),
+                      )
+                    ],
                   )
                 : Container(
                     child: Column(
@@ -178,7 +195,7 @@ class _VideoInfoState extends State<VideoInfo> {
             Expanded(
               child: Container(
                 decoration: BoxDecoration(
-                  color: Colors.white,
+                  color: mainColor,
                   borderRadius:
                       BorderRadius.only(topRight: Radius.circular(70)),
                 ),
@@ -194,20 +211,20 @@ class _VideoInfoState extends State<VideoInfo> {
                       Text(
                         'Circuit 1: Legs Toning',
                         style: TextStyle(
-                            fontSize: 20, fontWeight: FontWeight.bold),
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            color: whiteColor),
                       ),
                       Expanded(child: Container()),
                       Row(
                         children: [
-                          Icon(Icons.loop, size: 30, color: Color(0xff1C1C1E)),
+                          Icon(Icons.loop, size: 30, color: whiteColor),
                           SizedBox(
                             width: 10,
                           ),
                           Text(
                             '3 sets',
-                            style: TextStyle(
-                              fontSize: 15,
-                            ),
+                            style: TextStyle(fontSize: 15, color: whiteColor),
                           ),
                           SizedBox(
                             width: 20,
@@ -547,7 +564,7 @@ class _VideoInfoState extends State<VideoInfo> {
                       image: NetworkImage(
                         videoinfo[index]["thumbnail"],
                       ),
-                      fit: BoxFit.cover),
+                      fit: BoxFit.fill),
                 ),
               ),
               SizedBox(
@@ -559,7 +576,10 @@ class _VideoInfoState extends State<VideoInfo> {
                 children: [
                   Text(
                     videoinfo[index]["title"],
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                        color: whiteColor),
                   ),
                   SizedBox(
                     height: 10,

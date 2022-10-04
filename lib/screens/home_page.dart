@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/constants/colors.dart';
 import 'package:flutter_application_1/models/card_widget_model.dart';
 import 'package:flutter_application_1/models/workout_categories.dart';
 import 'package:flutter_application_1/texts/app_medium_text.dart';
 import 'package:flutter_application_1/texts/app_small_text.dart';
 import 'package:flutter_application_1/texts/app_large_text.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({super.key});
@@ -32,14 +34,51 @@ class _HomePageState extends State<HomePage> {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                Row(
                   children: [
-                    AppLargeText(text: 'Hello Dadaxon,'),
-                    SizedBox(
-                      height: 5,
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        RichText(
+                            text: TextSpan(children: [
+                          TextSpan(
+                            text: 'Good Morning! ',
+                            style: GoogleFonts.openSans(
+                                textStyle: TextStyle(
+                                    fontSize: 20, color: Colors.grey)),
+                          ),
+                          TextSpan(
+                            text: '👋',
+                            style: TextStyle(
+                              fontSize: 15,
+                            ),
+                          ),
+                        ])),
+                        SizedBox(
+                          height: 5,
+                        ),
+                        Text(
+                          'Dadaxon',
+                          style: GoogleFonts.openSans(
+                            textStyle: TextStyle(
+                                fontSize: 28,
+                                color: whiteColor,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                      ],
                     ),
-                    AppMeddiumText(text: 'Good Morning.'),
+                    Expanded(child: Container()),
+                    Container(
+                      width: 50,
+                      height: 50,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(50),
+                        image: DecorationImage(
+                            image: AssetImage('assets/avatar.jpg'),
+                            fit: BoxFit.cover),
+                      ),
+                    )
                   ],
                 ),
                 SizedBox(

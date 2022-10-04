@@ -2,12 +2,12 @@ import 'dart:convert';
 import 'dart:math';
 import 'dart:ui';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_application_1/constants/colors.dart';
 import 'package:flutter_application_1/navigation/navigator_widget.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 import 'package:flutter_application_1/texts/app_medium_text.dart';
-import 'package:flutter_application_1/texts/app_large_text.dart';
 
 class TestMusic extends StatefulWidget {
   @override
@@ -68,10 +68,14 @@ class _TestMusic extends State<TestMusic> {
                     padding:
                         const EdgeInsets.only(top: 60, left: 20, right: 20),
                     width: MediaQuery.of(context).size.width,
-                    height: 320,
+                    height: 330,
                     decoration: BoxDecoration(
+                        borderRadius: BorderRadius.only(
+                            bottomRight: Radius.circular(25),
+                            bottomLeft: Radius.circular(25)),
                         image: DecorationImage(
-                            image: AssetImage('assets/player_img.jpg'),
+                            image: NetworkImage(
+                                'https://s.yimg.com/uu/api/res/1.2/YlIjPiQa5AE1uQ5pdMTYIQ--~B/Zmk9ZmlsbDtoPTQ1MDt3PTY3NTthcHBpZD15dGFjaHlvbg--/https://s.yimg.com/os/creatr-uploaded-images/2020-10/b358d480-19cf-11eb-bfed-0dd3d8eadb2d.cf.jpg'),
                             fit: BoxFit.cover)),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -80,7 +84,7 @@ class _TestMusic extends State<TestMusic> {
                           children: [
                             InkWell(
                               onTap: () {
-                                Navigator.push(
+                                Navigator.pushReplacement(
                                     context,
                                     CupertinoPageRoute(
                                         builder: (context) =>
@@ -88,89 +92,45 @@ class _TestMusic extends State<TestMusic> {
                               },
                               child: Icon(
                                 Icons.arrow_back_ios,
-                                size: 25,
+                                size: 26,
                                 color: Colors.white,
                               ),
                             ),
                             Expanded(child: Container()),
-                            Icon(
-                              Icons.info_outline,
-                              size: 25,
-                              color: Colors.white,
+                            IconButton(
+                              onPressed: () {},
+                              icon: Icon(
+                                Icons.search,
+                                size: 28,
+                                color: Colors.white,
+                              ),
                             ),
                           ],
                         ),
-                        SizedBox(
-                          height: 30,
-                        ),
-                        AppLargeText(
-                          text: 'Today Workout Plan',
-                          size: 25,
-                        ),
-                        SizedBox(
-                          height: 5,
-                        ),
-                        AppMeddiumText(text: 'and Glutes Workout'),
-                        SizedBox(height: 50),
+                        Expanded(child: Container()),
                         Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Container(
-                              width: 90,
+                              padding: EdgeInsets.symmetric(horizontal: 10),
                               height: 30,
                               decoration: BoxDecoration(
-                                color: Color.fromARGB(215, 208, 253, 62),
+                                color: Color.fromARGB(48, 158, 158, 158),
                                 borderRadius: BorderRadius.circular(10),
                               ),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Icon(
-                                    Icons.timer,
-                                    size: 20,
-                                  ),
-                                  SizedBox(
-                                    width: 5,
-                                  ),
-                                  Text(
-                                    '68 min',
-                                    style: TextStyle(
-                                      fontSize: 16,
-                                    ),
-                                  )
-                                ],
-                              ),
-                            ),
-                            SizedBox(
-                              width: 20,
-                            ),
-                            Container(
-                              width: 220,
-                              height: 30,
-                              decoration: BoxDecoration(
-                                color: Color.fromARGB(215, 208, 253, 62),
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Icon(
-                                    Icons.handyman_outlined,
-                                    size: 20,
-                                  ),
-                                  SizedBox(
-                                    width: 5,
-                                  ),
-                                  Text(
-                                    'Resistent band, kettebell',
-                                    style: TextStyle(
-                                      fontSize: 16,
-                                    ),
-                                  )
-                                ],
+                              child: Center(
+                                child: AppMeddiumText(
+                                  color: Color.fromARGB(255, 243, 240, 240),
+                                  text: 'Каждый день собираем для вас',
+                                ),
                               ),
                             ),
                           ],
                         ),
+                        SizedBox(
+                          height: 10,
+                        )
                       ],
                     ),
                   )
@@ -211,8 +171,6 @@ class _TestMusic extends State<TestMusic> {
               child: Container(
                 decoration: BoxDecoration(
                   color: Color(0xff1C1C1E),
-                  borderRadius:
-                      BorderRadius.only(topRight: Radius.circular(60)),
                 ),
                 child: Container(
                   child: Column(children: [
@@ -222,10 +180,10 @@ class _TestMusic extends State<TestMusic> {
                     Row(
                       children: [
                         SizedBox(
-                          width: 30,
+                          width: 20,
                         ),
                         Text(
-                          'Circuit 1: Legs Toning',
+                          'Интересно сейчас',
                           style: TextStyle(
                               color: Color.fromARGB(240, 255, 255, 255),
                               fontSize: 20,
@@ -234,18 +192,11 @@ class _TestMusic extends State<TestMusic> {
                         Expanded(child: Container()),
                         Row(
                           children: [
-                            Icon(
-                              Icons.loop,
-                              size: 30,
-                              color: Color.fromARGB(240, 255, 255, 255),
-                            ),
-                            SizedBox(
-                              width: 10,
-                            ),
-                            Text(
-                              '3 sets',
-                              style: TextStyle(
-                                fontSize: 15,
+                            IconButton(
+                              onPressed: () {},
+                              icon: Icon(
+                                Icons.favorite_outline,
+                                size: 28,
                                 color: Color.fromARGB(240, 255, 255, 255),
                               ),
                             ),
@@ -465,7 +416,7 @@ class _TestMusic extends State<TestMusic> {
                     color: Color.fromARGB(150, 0, 0, 0),
                   )
                 ]),
-              )
+              ),
             ],
           ),
         ),
@@ -604,7 +555,7 @@ class _TestMusic extends State<TestMusic> {
 
   _buildCard(int index) {
     return Container(
-      height: 120,
+      height: 90,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -648,51 +599,14 @@ class _TestMusic extends State<TestMusic> {
                     ),
                   ),
                 ],
+              ),
+              Expanded(child: Container()),
+              Text(
+                videoinfo[index]["duration"],
+                style: TextStyle(color: whiteColor),
               )
             ],
           ),
-          SizedBox(
-            height: 10,
-          ),
-          Row(
-            children: [
-              Container(
-                width: 60,
-                height: 20,
-                decoration: BoxDecoration(
-                  color: Color.fromARGB(214, 208, 253, 62),
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: Center(
-                  child: Text(
-                    '10 rest',
-                    style: TextStyle(color: Color(0xff1C1C1E)),
-                  ),
-                ),
-              ),
-              SizedBox(
-                width: 10,
-              ),
-              Row(
-                children: [
-                  for (int i = 0; i < 85; i++)
-                    i.isEven
-                        ? Container(
-                            width: 3,
-                            height: 1,
-                            decoration: BoxDecoration(
-                                color: Color(0xff1C1C1E),
-                                borderRadius: BorderRadius.circular(2)),
-                          )
-                        : Container(
-                            width: 3,
-                            height: 1,
-                            color: Colors.white,
-                          )
-                ],
-              )
-            ],
-          )
         ],
       ),
     );

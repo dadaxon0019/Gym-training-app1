@@ -5,9 +5,11 @@ class AppLargeText extends StatelessWidget {
   double size;
   final String text;
   final Color color;
+  final TextStyle? style;
   AppLargeText(
       {super.key,
       this.size = 30,
+      this.style,
       required this.text,
       this.color = Colors.white});
 

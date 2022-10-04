@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/constants/colors.dart';
 import 'package:flutter_application_1/models/exercise_info.dart';
+import 'package:flutter_application_1/models/info_model.dart';
 import 'package:flutter_application_1/texts/app_large_text.dart';
 
 class Exercise extends StatefulWidget {
@@ -52,8 +53,15 @@ class _ExerciseState extends State<Exercise> {
           ),
           itemCount: exerciseInfo.length,
           itemBuilder: (_, int index) {
+            DescriptionInfo info = infoList[index];
             return GestureDetector(
               onTap: () {
+                Navigator.push(
+                  context,
+                  CupertinoPageRoute(
+                    builder: (_) => InfoInfo(info),
+                  ),
+                );
                 debugPrint(index.toString());
                 setState(() {});
               },
@@ -97,14 +105,7 @@ class _ExerciseState extends State<Exercise> {
             child: Container(),
           ),
           IconButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                CupertinoPageRoute(
-                  builder: (_) => ExerciseInfo(),
-                ),
-              );
-            },
+            onPressed: () {},
             icon: const Icon(
               Icons.arrow_forward_ios,
               size: 18,
